@@ -64,3 +64,5 @@ AI requests are proxied through `src/app/api/ai/route.js`, so the Anthropic API 
 - docx
 - pptxgenjs
 - react-hot-toast
+
+Contributor - Pratik Sinha , Shivam Gaur
