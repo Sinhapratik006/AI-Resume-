@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ResumeAI — AI-Powered Resume Builder
 
 A modern, production-grade resume builder built with React, Tailwind CSS, and Claude AI.
@@ -70,3 +71,6 @@ src/
 - docx (Word export)
 - pptxgenjs (PowerPoint export)
 - react-hot-toast
+=======
+# AI-Resume-
+>>>>>>> 50d57765ffadfded95313eca8866863c4306c21a
