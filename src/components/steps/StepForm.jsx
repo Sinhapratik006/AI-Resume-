@@ -1,7 +1,9 @@
+'use client';
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Trash2, Sparkles, ChevronRight, ChevronLeft, Loader2, Tag, X } from 'lucide-react';
-import { useResume } from '../../context/ResumeContext';
+import { useResume } from '../../context/useResume';
 import { STEPS, TOTAL_STEPS } from '../../utils/steps';
 import { generateSummary, suggestSkills } from '../../services/aiService';
 import toast from 'react-hot-toast';
@@ -224,7 +226,7 @@ export default function StepForm() {
             {step.id === 'summary' && (
               <button onClick={handleAISummary} disabled={aiLoading}
                 className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all hover:opacity-80"
-                style={{ background: 'linear-gradient(135deg, #d4a853, #c4604a)', color: 'white' }}>
+                style={{ background: 'var(--brand-gradient)', color: 'white', boxShadow: '0 10px 22px var(--shadow)' }}>
                 {aiLoading ? <Loader2 size={13} className="animate-spin" /> : <Sparkles size={13} />}
                 Generate with AI
               </button>
@@ -232,7 +234,7 @@ export default function StepForm() {
             {step.id === 'skills' && (
               <button onClick={handleAISkills} disabled={aiLoading}
                 className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold transition-all hover:opacity-80"
-                style={{ background: 'linear-gradient(135deg, #7a9e87, #5b7fa6)', color: 'white' }}>
+                style={{ background: 'var(--cool-gradient)', color: 'white', boxShadow: '0 10px 22px var(--shadow)' }}>
                 {aiLoading ? <Loader2 size={13} className="animate-spin" /> : <Sparkles size={13} />}
                 AI Suggest Skills
               </button>
@@ -322,7 +324,7 @@ export default function StepForm() {
 
         <button onClick={handleNext}
           className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg"
-          style={{ background: 'linear-gradient(135deg, #d4a853, #c4604a)' }}>
+          style={{ background: 'var(--brand-gradient)', boxShadow: '0 10px 22px var(--shadow)' }}>
           {isLast ? 'Finish' : 'Next'}
           <ChevronRight size={16} />
         </button>

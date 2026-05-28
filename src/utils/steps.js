@@ -10,7 +10,7 @@ export const STEPS = [
     title: 'Personal Info',
     subtitle: "Let's start with the basics",
     icon: User,
-    color: '#d4a853',
+    color: '#c99534',
     fields: [
       { key: 'fullName', label: 'Full Name', placeholder: 'e.g. Alex Morgan', icon: User, type: 'text', required: true },
       { key: 'email', label: 'Email Address', placeholder: 'alex@example.com', icon: Mail, type: 'email', required: true },
@@ -23,7 +23,7 @@ export const STEPS = [
     title: 'Online Presence',
     subtitle: 'Add your professional profiles',
     icon: Globe,
-    color: '#7a9e87',
+    color: '#6f927a',
     fields: [
       { key: 'github', label: 'GitHub Profile', placeholder: 'https://github.com/username', icon: Link, type: 'url' },
       { key: 'linkedin', label: 'LinkedIn Profile', placeholder: 'https://linkedin.com/in/username', icon: AtSign, type: 'url' },
@@ -35,7 +35,7 @@ export const STEPS = [
     title: 'Professional Summary',
     subtitle: 'Tell your story in 2–3 sentences',
     icon: FileText,
-    color: '#c4604a',
+    color: '#b75c45',
     fields: [
       { key: 'summary', label: 'Summary', placeholder: 'A passionate software engineer with 5+ years of experience...', type: 'textarea', rows: 5 },
     ]
@@ -45,7 +45,7 @@ export const STEPS = [
     title: 'Work Experience',
     subtitle: 'Your professional journey',
     icon: Briefcase,
-    color: '#5b7fa6',
+    color: '#4f759d',
     isArray: true,
     arrayKey: 'experience',
     arrayFields: [
@@ -61,7 +61,7 @@ export const STEPS = [
     title: 'Education',
     subtitle: 'Your academic background',
     icon: GraduationCap,
-    color: '#8b6fbf',
+    color: '#8068a8',
     isArray: true,
     arrayKey: 'education',
     arrayFields: [
@@ -76,7 +76,7 @@ export const STEPS = [
     title: 'Skills',
     subtitle: 'What are you great at?',
     icon: Zap,
-    color: '#d4a853',
+    color: '#c99534',
     isSkills: true,
     fields: [
       { key: 'skills', label: 'Skills', placeholder: 'e.g. React, Node.js, Python — press Enter or comma to add', type: 'tags' },
@@ -87,7 +87,7 @@ export const STEPS = [
     title: 'Projects',
     subtitle: 'Showcase your work',
     icon: FolderOpen,
-    color: '#7a9e87',
+    color: '#6f927a',
     isArray: true,
     arrayKey: 'projects',
     arrayFields: [
@@ -102,7 +102,7 @@ export const STEPS = [
     title: 'Achievements',
     subtitle: 'Milestones & recognition',
     icon: Trophy,
-    color: '#c4604a',
+    color: '#b75c45',
     isArray: true,
     arrayKey: 'achievements',
     arrayFields: [
@@ -117,7 +117,7 @@ export const STEPS = [
     title: 'Certifications',
     subtitle: 'Credentials & licenses',
     icon: Award,
-    color: '#5b7fa6',
+    color: '#4f759d',
     isArray: true,
     arrayKey: 'certifications',
     arrayFields: [
@@ -132,7 +132,7 @@ export const STEPS = [
     title: 'Languages',
     subtitle: 'Technical & spoken languages',
     icon: Code,
-    color: '#8b6fbf',
+    color: '#8068a8',
     isSkills: true,
     fields: [
       { key: 'languages', label: 'Languages', placeholder: 'e.g. English (Native), Spanish (B2), Python, Go', type: 'tags' },

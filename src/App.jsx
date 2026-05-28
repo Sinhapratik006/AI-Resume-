@@ -1,6 +1,9 @@
+'use client';
+
 import { Toaster } from 'react-hot-toast';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ResumeProvider, useResume } from './context/ResumeContext';
+import { ResumeProvider } from './context/ResumeContext';
+import { useResume } from './context/useResume';
 import Header from './components/ui/Header';
 import ProgressSidebar from './components/ui/ProgressSidebar';
 import StepForm from './components/steps/StepForm';

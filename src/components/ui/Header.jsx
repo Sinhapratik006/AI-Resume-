@@ -1,11 +1,12 @@
-import { Moon, Sun, RotateCcw, Menu, X, Eye, EyeOff } from 'lucide-react';
+'use client';
+
+import { Moon, Sun, RotateCcw, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { useResume } from '../../context/ResumeContext';
+import { useResume } from '../../context/useResume';
 import { STEPS } from '../../utils/steps';
 import toast from 'react-hot-toast';
 
-export default function Header({ onToggleMobile }) {
+export default function Header() {
   const { isDark, setIsDark, resetResume, previewMode, setPreviewMode, currentStep, setCurrentStep } = useResume();
 
   const handleReset = () => {
@@ -18,14 +19,12 @@ export default function Header({ onToggleMobile }) {
   return (
     <header className="h-14 flex items-center justify-between px-4 border-b shrink-0 no-print"
       style={{ background: 'var(--paper)', borderColor: 'var(--border)', zIndex: 50 }}>
-      {/* Logo - mobile */}
       <div className="flex items-center gap-2 lg:hidden">
         <div className="w-7 h-7 rounded-lg flex items-center justify-center text-white text-sm font-bold"
-          style={{ background: 'linear-gradient(135deg, #d4a853, #c4604a)' }}>R</div>
+          style={{ background: 'var(--brand-gradient)', boxShadow: '0 8px 18px var(--shadow)' }}>R</div>
         <span className="font-display text-base font-bold" style={{ color: 'var(--ink)' }}>ResumeAI</span>
       </div>
 
-      {/* Center: mobile step selector */}
       <div className="lg:hidden flex items-center gap-2">
         <select
           value={currentStep}
@@ -36,14 +35,12 @@ export default function Header({ onToggleMobile }) {
         </select>
       </div>
 
-      {/* Desktop center breadcrumb */}
       <div className="hidden lg:flex items-center gap-1 text-xs" style={{ color: 'var(--muted)' }}>
         <span>Resume Builder</span>
-        <span>›</span>
+        <span aria-hidden="true">/</span>
         <span style={{ color: 'var(--ink)', fontWeight: 600 }}>{STEPS[currentStep]?.title}</span>
       </div>
 
-      {/* Actions */}
       <div className="flex items-center gap-2">
         <button
           onClick={() => setPreviewMode(!previewMode)}
@@ -55,7 +52,7 @@ export default function Header({ onToggleMobile }) {
 
         <button onClick={handleReset}
           className="p-2 rounded-lg transition-all hover:opacity-70"
-          style={{ color: 'var(--muted)' }}
+          style={{ color: 'var(--muted)', background: 'var(--card-soft)' }}
           title="Reset resume">
           <RotateCcw size={15} />
         </button>
@@ -63,7 +60,8 @@ export default function Header({ onToggleMobile }) {
         <motion.button
           onClick={() => setIsDark(!isDark)}
           className="p-2 rounded-lg transition-all hover:opacity-70"
-          style={{ color: 'var(--muted)' }}
+          style={{ color: 'var(--ink)', background: 'var(--card-soft)', border: '1px solid var(--border)' }}
+          title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           whileTap={{ rotate: 180 }}>
           {isDark ? <Sun size={15} /> : <Moon size={15} />}
         </motion.button>

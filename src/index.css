@@ -3,33 +3,53 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0f0e0e;
-  --paper: #faf9f7;
-  --cream: #f4f1eb;
-  --amber: #d4a853;
-  --amber-light: #f0d080;
-  --sage: #7a9e87;
-  --rust: #c4604a;
-  --slate: #4a5568;
-  --muted: #8a8a8a;
-  --border: #e5e0d8;
-  --card: #ffffff;
-  --shadow: rgba(15,14,14,0.08);
+  color-scheme: light;
+  --ink: #181410;
+  --paper: #fbfaf7;
+  --cream: #f1ece4;
+  --card: #fffefd;
+  --card-soft: #f8f4ed;
+  --amber: #c99534;
+  --amber-light: #f0d489;
+  --sage: #6f927a;
+  --rust: #b75c45;
+  --blue: #4f759d;
+  --plum: #8068a8;
+  --slate: #4c5563;
+  --muted: #81786f;
+  --border: #e2d8ca;
+  --shadow: rgba(41, 29, 18, 0.1);
+  --brand-gradient: linear-gradient(135deg, #c99534 0%, #b75c45 100%);
+  --cool-gradient: linear-gradient(135deg, #6f927a 0%, #4f759d 100%);
+  --preview-bg: #ebe4d8;
+  --danger: #c85245;
+  --info: #386fa4;
+  --warning: #c17228;
 }
 
 .dark {
-  --ink: #f0ede8;
-  --paper: #111110;
-  --cream: #1a1917;
-  --amber: #d4a853;
-  --amber-light: #b8902f;
-  --sage: #6b8f78;
-  --rust: #c4604a;
-  --slate: #a0aec0;
-  --muted: #6b6b6b;
-  --border: #2a2926;
-  --card: #1c1b19;
-  --shadow: rgba(0,0,0,0.3);
+  color-scheme: dark;
+  --ink: #f5efe6;
+  --paper: #12100e;
+  --cream: #1b1714;
+  --card: #211d19;
+  --card-soft: #272119;
+  --amber: #e1b55f;
+  --amber-light: #f0d489;
+  --sage: #8eb29a;
+  --rust: #da765d;
+  --blue: #86a8cb;
+  --plum: #aa94cf;
+  --slate: #c6bdb3;
+  --muted: #8d8379;
+  --border: #342c24;
+  --shadow: rgba(0, 0, 0, 0.38);
+  --brand-gradient: linear-gradient(135deg, #e1b55f 0%, #da765d 100%);
+  --cool-gradient: linear-gradient(135deg, #8eb29a 0%, #86a8cb 100%);
+  --preview-bg: #171411;
+  --danger: #f07a6b;
+  --info: #8ab4df;
+  --warning: #e09b52;
 }
 
 * { box-sizing: border-box; }
@@ -40,6 +60,17 @@ body {
   color: var(--ink);
   transition: background 0.3s, color 0.3s;
   margin: 0;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--amber) 32%, transparent);
+  color: var(--ink);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.75;
 }
 
 ::-webkit-scrollbar { width: 4px; }
@@ -53,7 +84,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--amber) 0%, var(--rust) 100%);
+  background: var(--brand-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

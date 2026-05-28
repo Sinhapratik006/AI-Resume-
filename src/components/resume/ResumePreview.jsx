@@ -1,7 +1,9 @@
+'use client';
+
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, FileText, Presentation, FileType, Loader2, Eye, RefreshCw, Star } from 'lucide-react';
-import { useResume } from '../../context/ResumeContext';
+import { FileText, Presentation, FileType, Loader2, Eye, Star } from 'lucide-react';
+import { useResume } from '../../context/useResume';
 import ClassicTemplate from '../../templates/ClassicTemplate';
 import ModernTemplate from '../../templates/ModernTemplate';
 import CreativeTemplate from '../../templates/CreativeTemplate';
@@ -60,7 +62,7 @@ export default function ResumePreview() {
   };
 
   return (
-    <div className="flex flex-col h-full" style={{ background: 'var(--cream)' }}>
+    <div className="flex flex-col h-full" style={{ background: 'var(--preview-bg)' }}>
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b shrink-0"
         style={{ borderColor: 'var(--border)', background: 'var(--paper)' }}>
@@ -71,9 +73,9 @@ export default function ResumePreview() {
 
         <div className="flex gap-1.5">
           {[
-            { type: 'pdf', icon: FileText, label: 'PDF', color: '#e53e3e' },
-            { type: 'docx', icon: FileType, label: 'DOCX', color: '#2b6cb0' },
-            { type: 'ppt', icon: Presentation, label: 'PPT', color: '#dd6b20' },
+            { type: 'pdf', icon: FileText, label: 'PDF', color: 'var(--danger)' },
+            { type: 'docx', icon: FileType, label: 'DOCX', color: 'var(--info)' },
+            { type: 'ppt', icon: Presentation, label: 'PPT', color: 'var(--warning)' },
           ].map(({ type, icon: Icon, label, color }) => (
             <button key={type} onClick={() => handleExport(type)} disabled={!!exporting}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:opacity-80 disabled:opacity-40"
@@ -119,7 +121,7 @@ export default function ResumePreview() {
                   <svg className="w-14 h-14 -rotate-90" viewBox="0 0 56 56">
                     <circle cx="28" cy="28" r="22" fill="none" stroke="var(--border)" strokeWidth="4" />
                     <circle cx="28" cy="28" r="22" fill="none"
-                      stroke={score.score >= 80 ? '#7a9e87' : score.score >= 60 ? '#d4a853' : '#c4604a'}
+                      stroke={score.score >= 80 ? 'var(--sage)' : score.score >= 60 ? 'var(--amber)' : 'var(--rust)'}
                       strokeWidth="4" strokeDasharray={`${(score.score / 100) * 138} 138`}
                       strokeLinecap="round" />
                   </svg>
@@ -154,7 +156,7 @@ export default function ResumePreview() {
 
       {/* Resume preview */}
       <div className="flex-1 overflow-auto p-4" ref={previewRef}>
-        <div className="shadow-xl rounded-lg overflow-hidden" style={{ background: 'white', minHeight: '400px', transform: 'scale(1)', transformOrigin: 'top center' }}>
+        <div className="shadow-xl rounded-lg overflow-hidden" style={{ background: 'white', minHeight: '400px', transform: 'scale(1)', transformOrigin: 'top center', boxShadow: '0 22px 55px var(--shadow)' }}>
           <TemplateComponent data={resumeData} />
         </div>
       </div>
