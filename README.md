@@ -21,7 +21,7 @@ npm install
 Create a `.env.local` file in the root:
 
 ```bash
-ANTHROPIC_API_KEY=your_api_key_here
+ANTHROPIC_API_KEY=your_api_key_heree
 ```
 
 Run the app:
