@@ -1,0 +1,143 @@
+import {
+  User, Mail, Phone, MapPin, Link, Globe,
+  FileText, Briefcase, GraduationCap, Zap, Trophy,
+  Award, FolderOpen, Code, AtSign
+} from 'lucide-react';
+
+export const STEPS = [
+  {
+    id: 'basics',
+    title: 'Personal Info',
+    subtitle: "Let's start with the basics",
+    icon: User,
+    color: '#d4a853',
+    fields: [
+      { key: 'fullName', label: 'Full Name', placeholder: 'e.g. Alex Morgan', icon: User, type: 'text', required: true },
+      { key: 'email', label: 'Email Address', placeholder: 'alex@example.com', icon: Mail, type: 'email', required: true },
+      { key: 'phone', label: 'Phone Number', placeholder: '+1 (555) 000-0000', icon: Phone, type: 'tel' },
+      { key: 'location', label: 'Location', placeholder: 'City, State, Country', icon: MapPin, type: 'text' },
+    ]
+  },
+  {
+    id: 'links',
+    title: 'Online Presence',
+    subtitle: 'Add your professional profiles',
+    icon: Globe,
+    color: '#7a9e87',
+    fields: [
+      { key: 'github', label: 'GitHub Profile', placeholder: 'https://github.com/username', icon: Link, type: 'url' },
+      { key: 'linkedin', label: 'LinkedIn Profile', placeholder: 'https://linkedin.com/in/username', icon: AtSign, type: 'url' },
+      { key: 'portfolio', label: 'Portfolio / Website', placeholder: 'https://yoursite.com', icon: Globe, type: 'url' },
+    ]
+  },
+  {
+    id: 'summary',
+    title: 'Professional Summary',
+    subtitle: 'Tell your story in 2–3 sentences',
+    icon: FileText,
+    color: '#c4604a',
+    fields: [
+      { key: 'summary', label: 'Summary', placeholder: 'A passionate software engineer with 5+ years of experience...', type: 'textarea', rows: 5 },
+    ]
+  },
+  {
+    id: 'experience',
+    title: 'Work Experience',
+    subtitle: 'Your professional journey',
+    icon: Briefcase,
+    color: '#5b7fa6',
+    isArray: true,
+    arrayKey: 'experience',
+    arrayFields: [
+      { key: 'title', label: 'Job Title', placeholder: 'Senior Engineer', type: 'text' },
+      { key: 'company', label: 'Company', placeholder: 'Acme Corp', type: 'text' },
+      { key: 'startDate', label: 'Start Date', placeholder: 'Jan 2022', type: 'text' },
+      { key: 'endDate', label: 'End Date', placeholder: 'Present', type: 'text' },
+      { key: 'description', label: 'Responsibilities', placeholder: '• Led development of...\n• Reduced load times by 40%...', type: 'textarea', rows: 4 },
+    ]
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    subtitle: 'Your academic background',
+    icon: GraduationCap,
+    color: '#8b6fbf',
+    isArray: true,
+    arrayKey: 'education',
+    arrayFields: [
+      { key: 'degree', label: 'Degree', placeholder: 'B.S. Computer Science', type: 'text' },
+      { key: 'school', label: 'School/University', placeholder: 'MIT', type: 'text' },
+      { key: 'year', label: 'Graduation Year', placeholder: '2020', type: 'text' },
+      { key: 'gpa', label: 'GPA (optional)', placeholder: '3.8 / 4.0', type: 'text' },
+    ]
+  },
+  {
+    id: 'skills',
+    title: 'Skills',
+    subtitle: 'What are you great at?',
+    icon: Zap,
+    color: '#d4a853',
+    isSkills: true,
+    fields: [
+      { key: 'skills', label: 'Skills', placeholder: 'e.g. React, Node.js, Python — press Enter or comma to add', type: 'tags' },
+    ]
+  },
+  {
+    id: 'projects',
+    title: 'Projects',
+    subtitle: 'Showcase your work',
+    icon: FolderOpen,
+    color: '#7a9e87',
+    isArray: true,
+    arrayKey: 'projects',
+    arrayFields: [
+      { key: 'name', label: 'Project Name', placeholder: 'My Awesome App', type: 'text' },
+      { key: 'tech', label: 'Technologies', placeholder: 'React, Firebase, Tailwind', type: 'text' },
+      { key: 'link', label: 'Project Link', placeholder: 'https://github.com/...', type: 'url' },
+      { key: 'description', label: 'Description', placeholder: 'Built a full-stack app that...', type: 'textarea', rows: 3 },
+    ]
+  },
+  {
+    id: 'achievements',
+    title: 'Achievements',
+    subtitle: 'Milestones & recognition',
+    icon: Trophy,
+    color: '#c4604a',
+    isArray: true,
+    arrayKey: 'achievements',
+    arrayFields: [
+      { key: 'title', label: 'Achievement Title', placeholder: 'Employee of the Year', type: 'text' },
+      { key: 'org', label: 'Organization', placeholder: 'Google', type: 'text' },
+      { key: 'year', label: 'Year', placeholder: '2023', type: 'text' },
+      { key: 'description', label: 'Description (optional)', placeholder: 'Recognized for...', type: 'textarea', rows: 2 },
+    ]
+  },
+  {
+    id: 'certifications',
+    title: 'Certifications',
+    subtitle: 'Credentials & licenses',
+    icon: Award,
+    color: '#5b7fa6',
+    isArray: true,
+    arrayKey: 'certifications',
+    arrayFields: [
+      { key: 'name', label: 'Certification Name', placeholder: 'AWS Solutions Architect', type: 'text' },
+      { key: 'issuer', label: 'Issued By', placeholder: 'Amazon Web Services', type: 'text' },
+      { key: 'year', label: 'Year', placeholder: '2023', type: 'text' },
+      { key: 'link', label: 'Credential URL (optional)', placeholder: 'https://...', type: 'url' },
+    ]
+  },
+  {
+    id: 'languages',
+    title: 'Languages',
+    subtitle: 'Technical & spoken languages',
+    icon: Code,
+    color: '#8b6fbf',
+    isSkills: true,
+    fields: [
+      { key: 'languages', label: 'Languages', placeholder: 'e.g. English (Native), Spanish (B2), Python, Go', type: 'tags' },
+    ]
+  },
+];
+
+export const TOTAL_STEPS = STEPS.length;
