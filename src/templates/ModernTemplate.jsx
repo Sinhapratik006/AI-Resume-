@@ -154,7 +154,7 @@ function SideItem({ icon, children }) {
     </div>
   );
 }
-function MainSection({ title, children, accent, accentLight }) {
+function MainSection({ title, children, accent }) {
   return (
     <div style={{ marginBottom: '14px' }}>
       <h2 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: accent, borderBottom: `2px solid ${accent}`, paddingBottom: '3px', marginBottom: '8px' }}>

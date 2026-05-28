@@ -1,7 +1,9 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { STEPS } from '../../utils/steps';
-import { useResume } from '../../context/ResumeContext';
+import { useResume } from '../../context/useResume';
 
 export default function ProgressSidebar() {
   const { currentStep, setCurrentStep, resumeData } = useResume();
@@ -22,7 +24,7 @@ export default function ProgressSidebar() {
       <div className="p-6 border-b" style={{ borderColor: 'var(--border)' }}>
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm font-bold"
-            style={{ background: 'linear-gradient(135deg, #d4a853, #c4604a)' }}>R</div>
+            style={{ background: 'var(--brand-gradient)', boxShadow: '0 8px 18px var(--shadow)' }}>R</div>
           <span className="font-display text-lg font-bold" style={{ color: 'var(--ink)' }}>ResumeAI</span>
         </div>
         <div className="mt-4">
@@ -32,7 +34,7 @@ export default function ProgressSidebar() {
           <div className="h-1.5 rounded-full" style={{ background: 'var(--border)' }}>
             <motion.div
               className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #d4a853, #c4604a)' }}
+              style={{ background: 'var(--brand-gradient)' }}
               animate={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             />
@@ -53,7 +55,7 @@ export default function ProgressSidebar() {
               onClick={() => accessible && setCurrentStep(index)}
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl mb-1 text-left transition-all"
               style={{
-                background: active ? 'white' : 'transparent',
+                background: active ? 'var(--card)' : 'transparent',
                 color: active ? 'var(--ink)' : accessible ? 'var(--slate)' : 'var(--muted)',
                 boxShadow: active ? '0 2px 12px var(--shadow)' : 'none',
                 cursor: accessible ? 'pointer' : 'default',
@@ -64,8 +66,8 @@ export default function ProgressSidebar() {
               <div
                 className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 text-xs"
                 style={{
-                  background: active ? `${step.color}22` : complete ? '#7a9e8722' : 'var(--border)',
-                  color: active ? step.color : complete ? '#7a9e87' : 'var(--muted)',
+                  background: active ? `${step.color}22` : complete ? 'color-mix(in srgb, var(--sage) 20%, transparent)' : 'var(--border)',
+                  color: active ? step.color : complete ? 'var(--sage)' : 'var(--muted)',
                 }}
               >
                 {complete && !active ? <Check size={12} /> : <Icon size={13} />}
@@ -85,7 +87,7 @@ export default function ProgressSidebar() {
               </div>
               {complete && (
                 <div className="ml-auto">
-                  <Check size={12} style={{ color: '#7a9e87' }} />
+                  <Check size={12} style={{ color: 'var(--sage)' }} />
                 </div>
               )}
             </motion.button>

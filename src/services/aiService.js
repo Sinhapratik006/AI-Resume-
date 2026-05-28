@@ -1,18 +1,17 @@
-const API_URL = 'https://api.anthropic.com/v1/messages';
-
 async function callClaude(prompt, systemPrompt = '') {
-  const response = await fetch(API_URL, {
+  const response = await fetch('/api/ai', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      system: systemPrompt || 'You are a professional resume writer. Be concise, impactful, and ATS-friendly.',
-      messages: [{ role: 'user', content: prompt }],
-    }),
+    body: JSON.stringify({ prompt, systemPrompt }),
   });
+
   const data = await response.json();
-  return data.content?.[0]?.text || '';
+
+  if (!response.ok) {
+    throw new Error(data.error || 'AI request failed');
+  }
+
+  return data.text || '';
 }
 
 export async function generateSummary(resumeData) {

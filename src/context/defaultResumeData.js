@@ -1,0 +1,17 @@
+export const defaultResumeData = {
+  fullName: '',
+  email: '',
+  phone: '',
+  location: '',
+  github: '',
+  linkedin: '',
+  portfolio: '',
+  summary: '',
+  experience: [],
+  education: [],
+  skills: [],
+  achievements: [],
+  certifications: [],
+  projects: [],
+  languages: [],
+};
