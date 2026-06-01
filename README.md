@@ -21,7 +21,7 @@ npm install
 Create a `.env.local` file in the root:
 
 ```bash
-ANTHROPIC_API_KEY=your_api_key_here
+ANTHROPIC_API_KEY=your_api_key_heree
 ```
 
 Run the app:
@@ -64,3 +64,5 @@ AI requests are proxied through `src/app/api/ai/route.js`, so the Anthropic API 
 - docx
 - pptxgenjs
 - react-hot-toast
+
+Contributor - Pratik Sinha , Shivam Gaur
